@@ -7,6 +7,7 @@
 html {
     scroll-behavior: smooth; 
     overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 a {
@@ -16,14 +17,18 @@ a {
 }
 
 h2 {
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
+    margin-top: 0.7em;
+    margin-bottom: 0.7em;
+}
+
+.img {
+    margin-bottom: 1em;
 }
 
 body {
     font-family: 'Roboto Mono', monospace; 
     background: rgb(255, 254, 245);
-    max-width: 1440px;
+    max-width: 1000px;
     margin: 0 auto;
     color: rgb(0, 0, 0);
 }
@@ -31,12 +36,13 @@ body {
 main {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .heading {
     display: flex;
     justify-content: flex-start;
-    width: 100%;
+    width: 80%;
 }
 
 .heading-text {
@@ -44,7 +50,7 @@ main {
 }
 
 .accordion {
-    width: 100%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -67,12 +73,16 @@ main {
     height: 100%;
     width: 100%;
 }
+
+.accordion-content .accordion-href {
+    justify-content: center;
+}
   
 .accordion-content {
     width: 100%;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease-out;
+    transition: max-height 1s ease-out;
 }
 
 .button {
@@ -80,8 +90,10 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 15%;
-    width: 2%;
+    height: 1.5em;
+    width: 1.5em;
+    margin-right: 0.1em;
+    transition: 0.3s ease-in-out;
 }
 
 .bar {
@@ -105,27 +117,38 @@ main {
   
 /* Target the clicked accordion element */
 .accordion-header:target + .accordion-content {
-    max-height: 100%;
+    max-height: 100vh;
 }
 
 /* Keep the clicked accordion element open permanently */
 .accordion-header.active + .accordion-content {
-    max-height: 100%;
+    max-height: 100vh;
 }
   
 /* Target the other accordion elements on hover */
 .accordion-header:not(:target):not(.active):hover + .accordion-content, .accordion-content:hover {
-    max-height: 100%;
+    max-height: 100vh;
 }
 
 .accordion-header:target .button {
-    transform: rotate(45deg);
+    transform: rotate(-45deg) translateX(0.1em) translateY(0.1em);
 }
 
 .accordion-header:hover .button {
-    transform: rotate(45deg);
+    transform: rotate(-45deg) translateX(0.1em) translateY(0.1em);
 }
 
-.accordion-header:target.accordion-content:hover .button {
-    transform: rotate(45deg);
+.accordion:hover.gradient-background {
+    background: linear-gradient(to right, rgb(255, 193, 193), rgb(255, 231, 189), rgb(255, 255, 191), rgb(190, 255, 190), rgb(184, 184, 255), rgb(228, 190, 255), rgb(255, 187, 255));
+    background-size: 400% 400%; /* Make the gradient larger than the element */
+    animation: gradient-animation 1s ease infinite; /* Set the animation */
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%; /* Start the gradient at the left center */
+    }
+    100% {
+        background-position: 100% 50%; /* End the gradient at the right center */
+    }
 }
