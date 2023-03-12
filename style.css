@@ -3,56 +3,51 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 html {
     scroll-behavior: smooth; 
     overflow-x: hidden;
     overflow-y: scroll;
 }
-
 a {
     text-decoration: none;
     color: black;
     height: 100%;
 }
-
+h1 {
+    font-size: 2em;
+}
 h2 {
     margin-top: 0.7em;
     margin-bottom: 0.7em;
+    font-size: 1.5em;
 }
-
 .img {
     margin-bottom: 1em;
 }
-
 .last {
-    margin-bottom: 3em;
+    margin-bottom: 5em;
 }
-
 body {
     font-family: 'Roboto Mono', monospace; 
     background: rgb(255, 254, 245);
-    max-width: 1000px;
+    max-width: 60em;
     margin: 0 auto;
     color: rgb(0, 0, 0);
 }
-
 main {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
 .heading {
     display: flex;
     justify-content: flex-start;
     width: 80%;
 }
-
 .heading-text {
-    margin-top: 1.5em;
+    margin-top: 1em;
+    margin-bottom: 0.4em;
 }
-
 .accordion {
     width: 80%;
     display: flex;
@@ -60,12 +55,10 @@ main {
     justify-content: flex-start;
     align-items: center;
 }
-
 .wrapper {
     width: 100%;
     border-top: solid black;
 }
-
 .accordion-element {
     width: 100%;
     display: flex;
@@ -74,7 +67,6 @@ main {
     align-items: center;
     transition: opacity 0.1s;
 }
-  
 .accordion-header {
     display: flex;
     justify-content: space-between;
@@ -82,7 +74,6 @@ main {
     width: 100%;
     cursor: pointer;
 }
-
 .accordion-href {
     color: blue;
     display: flex;
@@ -92,18 +83,15 @@ main {
     width: 100%;
     transition: color 0.5s;
 }
-
 .accordion-content .accordion-href {
     justify-content: center;
 }
-  
 .accordion-content {
     width: 100%;
     max-height: 0;
     overflow: hidden;
     transition: max-height 1s ease-out;
 }
-
 .button {
     opacity: 0;
     display: flex;
@@ -115,69 +103,76 @@ main {
     margin-right: 0.1em;
     transition: opacity 0.5s, transform 0.3s;
 }
-
 .accordion:hover .button {
     opacity: 1;
 }
-
 .accordion:hover .accordion-href{
     color: black;
 }
-
 .bar {
     border: solid rgb(0, 0, 0);
     width: 100%;
 }
-
 .bar-2 {
     transform: translateY(-100%) rotate(90deg);
 }
-
 .accordion-header:target .accordion-href{
     color: black;
 }
-
 .accordion-header.active .accordion-href{
     color: black;
 }
-
 .accordion-element:active {
     opacity: 0.7;
 }
-
 .accordion-element:active .accordion-href {
     color: blue;
 }
-
 .accordion-element:active .bar {
     border: solid rgb(0, 0, 255);
 }
-
 .accordion-header:target + .accordion-content {
     max-height: 100vh;
 }
-
 .accordion-header.active + .accordion-content {
     max-height: 100vh;
 }
-
 .accordion-header:not(:target):not(.active):hover + .accordion-content, .accordion-content:hover {
     max-height: 100vh;
 }
-
 .accordion-element:target .button {
     transform: rotate(-45deg) translateX(0.1em) translateY(0.1em);
 }
-
 .accordion-element:hover .button {
     transform: rotate(-45deg) translateX(0.1em) translateY(0.1em);
 }
-
 @media screen and (max-width: 820px) {
+    h1 {
+        font-size: 1.3em;
+    }
+    h2 {
+        font-size: 1em;
+    }
+    .button {
+        height: 1em;
+        width: 1em;
+    }
     .accordion-href {
         color: black;
     }
     .button {
         opacity: 1;
+    }
+}
+@media screen and (max-width: 320px) {
+    h1 {
+        font-size: 1em;
+    }
+    h2 {
+        font-size: 0.75em;
+    }
+    .button {
+        height: 0.75em;
+        width: 0.75em;
     }
 }
